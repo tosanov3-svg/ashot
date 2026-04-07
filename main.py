@@ -9,7 +9,6 @@ import aiohttp
 from cryptography.hazmat.primitives import padding
 from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
 from cryptography.hazmat.backends import default_backend
-import uvloop
 
 TARGET_ACCOUNT_ID = "" # Тут твой айди аккаунта.
 TARGET_DEVICE_ID = "" # Тут твой идентификатор устройства. Пример: 284f9e92693da75d
@@ -207,4 +206,4 @@ async def main():
             for account in accounts:
                 tg.create_task(like(account, semaphore, session, progress, total))
 
-uvloop.run(main())
+asyncio.run(main())
